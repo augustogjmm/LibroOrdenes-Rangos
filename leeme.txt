@@ -1,0 +1,66 @@
+===========================================================================
+              RADAR HFT QUANTUM - TERMINAL OMNICIENT (BINANCE)
+===========================================================================
+Este documento contiene la guía completa para instalar y ejecutar el 
+script 'Rangos.py'. Este sistema es un radar de alta frecuencia que 
+analiza la liquidez de Binance, detecta movimientos institucionales 
+(ballenas), calcula el CVD y recomienda los mejores rangos para operar.
+
+1. REQUISITOS PREVIOS
+---------------------
+- Python 3.8 o superior instalado.
+- Conexión a internet estable.
+- Terminal o consola de comandos (PowerShell, CMD moderno o Bash).
+
+2. ESTRUCTURA DE ARCHIVOS NECESARIA
+-----------------------------------
+Asegúrate de tener los siguientes archivos en la misma carpeta:
+- Rangos.py          (El código principal del motor).
+- requirements.txt   (Lista de las librerías necesarias).
+- leeme.txt          (Este manual de instrucciones).
+
+* Nota: Al ejecutar el programa por primera vez, se crearán 
+automáticamente los archivos 'config.json', 'session_data.json' y 
+'backtest_grids.csv'.
+
+3. INSTRUCCIONES DE INSTALACIÓN (PASO A PASO)
+---------------------------------------------
+Abre una terminal dentro de la carpeta del proyecto y ejecuta los 
+siguientes comandos:
+
+PASO A: Crear un entorno virtual (Recomendado)
+   python -m venv venv
+
+PASO B: Activar el entorno virtual
+   - En Windows:       venv\Scripts\activate
+   - En Mac/Linux:     source venv/bin/activate
+
+PASO C: Instalar las dependencias externas
+   pip install -r requirements.txt
+
+4. CONFIGURACIÓN INICIAL
+------------------------
+Al abrir el programa, te pedirá tres datos básicos:
+1. "Moneda a analizar": El par que quieres operar (ej: BTCUSDT, ETHUSDT).
+2. "Agrupación o Bin Size": El tamaño para agrupar el libro de órdenes 
+   (presiona Enter para cálculo automático).
+3. "¿Activar alertas sonoras?": Escribe 'S' para activar el sonido cuando 
+   operan ballenas o se detectan rangos de alta probabilidad.
+
+Para agregar alertas de Telegram, modifica el archivo 'config.json' que se 
+creará automáticamente y agrega tu TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID.
+
+5. EJECUCIÓN
+------------
+Con el entorno virtual activado, simplemente ejecuta:
+   python Rangos.py
+
+6. NOTAS IMPORTANTES
+--------------------
+- No cierres la ventana de la terminal mientras operas, ya que el sistema 
+  guarda el historial del CVD y perfiles de volumen en la memoria RAM.
+- Para detener el sistema de forma segura y guardar la sesión, presiona Ctrl + C.
+
+===========================================================================
+Desarrollado para análisis de liquidez, rangos operativos y order flow.
+===========================================================================
