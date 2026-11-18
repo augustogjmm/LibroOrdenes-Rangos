@@ -1,100 +1,45 @@
-# \# 🌌 Radar HFT Pro - Motor Quantum (Modo Infalible)
+# Libro de Órdenes y Rangos — Monitor de microestructura
 
-# 
+Proyecto personal en Python para **investigar liquidez, flujo de operaciones y rangos de mercado** utilizando datos públicos de Binance. Es una herramienta de análisis, no un sistema institucional de high-frequency trading ni una garantía de resultados.
 
-# Este repositorio contiene una herramienta avanzada de \*\*High-Frequency Trading (HFT)\*\* y análisis de microestructura de mercado desarrollada en \*\*Python\*\*. El motor está diseñado para identificar "imanes de liquidez" en tiempo real y proponer estrategias de \*\*Grid Trading\*\* optimizadas mediante un sistema de puntuación matemática estricta.
+## Componentes principales
 
-# 
+- Captura y procesamiento del libro de órdenes y operaciones mediante conexiones HTTP/WebSocket.
+- Estimaciones de concentración de liquidez, delta acumulado y contexto de mercado.
+- Interfaz de terminal con Rich, eventos y controles de sesión.
+- Parámetros configurables y registros locales para análisis posterior.
 
-# \## 👤 Perfil del Desarrollador
+## Requisitos e instalación
 
-# Proyecto liderado por un profesional con más de 25 años de trayectoria en \*\*Infraestructura IT y Resiliencia Operativa\*\* en el sector bancario de Buenos Aires, Argentina. Esta herramienta traslada el rigor de los sistemas financieros tradicionales al dinámico ecosistema de las criptomonedas.
+Python 3.10 o superior; las dependencias necesarias están en `requirements.txt`.
 
-# 
+```bash
+git clone https://github.com/augustogjmm/LibroOrdenes-Rangos.git
+cd LibroOrdenes-Rangos
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# Linux/macOS: source .venv/bin/activate
+pip install -r requirements.txt
+python Rangos.py
+```
 
-# \## 🛠️ Especificaciones Técnicas del Motor
+En Windows, activar con `.venv\Scripts\activate` antes de instalar los paquetes.
 
-# El script `Rangos.py` integra múltiples capas de análisis de datos:
+## Archivos relevantes
 
-# 
+- `Rangos.py`: implementación principal.
+- `requirements.txt`: dependencias Python.
+- `leeme.txt`: instrucciones adicionales de la versión original.
+- `.gitignore`: archivos de ejecución y configuración que no deben versionarse.
 
-# \* \*\*Identificación de Imanes de Liquidez:\*\* Escaneo del 100% del Libro de Órdenes (Order Book) para detectar muros de compra/venta y concentraciones "Maestras".
+## Seguridad y límites
 
-# \* \*\*Análisis de Flujo de Órdenes (Order Flow):\*\* Seguimiento de operaciones de "Ballenas" (Whales), liquidaciones de mercado en tiempo real y cálculo de CVD (Cumulative Volume Delta).
+El script contiene variables de configuración para integraciones opcionales. **No se deben insertar claves de API, tokens ni secretos en el código ni en archivos versionados.** Los libros de órdenes son instantáneas cambiantes; las concentraciones de liquidez no equivalen a órdenes ejecutadas ni garantizan movimientos de precio.
 
-# \* \*\*Sistema de Puntuación Infalible (Score 0-100):\*\* Algoritmo que califica rangos de trading basados en liquidez relativa, equilibrio estructural, cercanía al POC (Point of Control) y confluencia con extremos de sesión.
+El proyecto es experimental y no se ha presentado una validación independiente de rendimiento, disponibilidad o rentabilidad. No constituye asesoramiento financiero.
 
-# \* \*\*Protección "Kill Switch":\*\* Detección automática de estados parabólicos para evitar la exposición en condiciones de alta volatilidad extrema.
+## Sobre el autor
 
-# \* \*\*Interfaz Visual ANSI:\*\* Motor de renderizado en consola optimizado para baja latencia con alertas visuales de color.
+[Augusto García Juárez Matorras](https://www.linkedin.com/in/augustog/) — trayectoria en infraestructura y operaciones de tecnología financiera. Ver también [portfolio ejecutivo](https://github.com/augustogjmm/Radar/blob/main/PORTFOLIO.md).
 
-# 
-
-# \## 🚀 Instalación y Configuración
-
-# 
-
-# 1\.  \*\*Requisitos previos:\*\*
-
-# &#x20;   \* Python 3.10 o superior.
-
-# &#x20;   \* Librerías necesarias: `requests`, `websocket-client`.
-
-# 
-
-# 2\.  \*\*Clonar y configurar:\*\*
-
-# &#x20;   ```bash
-
-# &#x20;   git clone https://github.com/\[TU\_USUARIO]/radar-hft-pro.git
-
-# &#x20;   cd radar-hft-pro
-
-# &#x20;   ```
-
-# 
-
-# 3\.  \*\*Gestión de Credenciales:\*\*
-
-# &#x20;   \* Crea un archivo `config.json` en la raíz (el script lo generará automáticamente si no existe).
-
-# &#x20;   \* \*\*IMPORTANTE:\*\* Nunca compartas ni subas tus API Keys de Binance o tokens de Telegram. Asegúrate de que tu archivo `.gitignore` incluya `config.json` o cualquier archivo `.env`.
-
-# 
-
-# \## 🤝 Protocolo de Colaboración (Control de Calidad)
-
-# Como senior en tecnología, valoro la precisión. Para contribuir a este proyecto, el flujo es estrictamente profesional para evitar errores o "trampas" en la lógica:
-
-# 
-
-# 1\.  \*\*Fork:\*\* Crea una copia del repositorio en tu perfil.
-
-# 2\.  \*\*Pull Request (PR):\*\* Envía tus mejoras para revisión.
-
-# 3\.  \*\*Auditoría:\*\* Todas las solicitudes serán auditadas línea por línea. No se integrará código que no esté debidamente documentado o que incluya dependencias externas innecesarias.
-
-# 
-
-# \## 📊 Estrategias Soportadas
-
-# \* \*\*Grid Neutral:\*\* Para fases de acumulación o lateralización.
-
-# \* \*\*Grid Long/Short:\*\* Con lógica de escape protegida según la dirección del Power Score.
-
-# 
-
-# \---
-
-# 
-
-# \## ⚠️ Disclaimer (Descargo de Responsabilidad)
-
-# Este software es exclusivamente para fines educativos y de investigación técnica. El trading de activos digitales conlleva un riesgo elevado de pérdida de capital. El autor no se responsabiliza por decisiones financieras tomadas a partir de las sugerencias del algoritmo. \*\*La gestión del riesgo es responsabilidad total del usuario.\*\*
-
-# 
-
-# \## 📄 Licencia
-
-# Distribuido bajo la licencia \*\*GNU GPLv3\*\*. El conocimiento debe ser libre, pero la autoría debe respetarse.
-
+Licencia: revisar [LICENSE](LICENSE).
